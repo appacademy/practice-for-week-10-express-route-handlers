@@ -103,7 +103,7 @@ exports.addAlbumByArtistId = (artistId, data) => {
   albums[albumId] = {
     albumId,
     ...data,
-    artistId
+    artistId: parseInt(artistId)
   };
   return albums[albumId];
 };
@@ -133,7 +133,7 @@ exports.getFilteredAlbums = (startsWith) => {
   });
 
   return Object.values(albums)
-    .filter(album => album.name.startsWith(startsWith));
+    .filter(album => album.name.toLowerCase().startsWith(startsWith.toLowerCase()));
 };
 
 exports.getSongsByArtistId = (artistId) => {
@@ -172,7 +172,7 @@ exports.addSongByAlbumId = (albumId, data) => {
   songs[songId] = {
     songId,
     ...data,
-    albumId
+    albumId: parseInt(albumId)
   };
   return songs[songId];
 };

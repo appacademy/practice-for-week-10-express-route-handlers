@@ -33,7 +33,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about a specific artist and their albums
   (returned from `getArtistByArtistId(artistId)` function exported from
   __data.js__)
@@ -52,6 +52,8 @@ Response components:
   }
   ```
 
+Run `npm test test/05-specs.js` to make sure you set this endpoint correctly.
+
 ### Edit a specified artist by artistId
 
 Request components:
@@ -59,7 +61,7 @@ Request components:
 - Method: PUT or PATCH
 - URL: /artists/:artistId
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about the artist to be edited
 
   ```json
@@ -72,7 +74,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about the edited artist
   (returned from `editArtistByArtistId(artistId, data)` function exported from
   __data.js__)
@@ -83,6 +85,8 @@ Response components:
     "name": "Led Zeppelin"
   }
   ```
+
+Run `npm test test/06-specs.js` to make sure you set this endpoint correctly.
 
 ### Delete a specified artist by artistId
 
@@ -97,7 +101,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: message of success
   (action of `deleteArtistByArtistId(artistId)` function exported from
   __data.js__ should be executed)
@@ -107,6 +111,8 @@ Response components:
     "message": "Successfully deleted"
   }
   ```
+
+Run `npm test test/07-specs.js` to make sure you set this endpoint correctly.
 
 ### Get all albums of a specific artist based on artistId
 
@@ -121,7 +127,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about all the albums of a specific artist
   (returned from `getAlbumsByArtistId(artistId)` function exported from
   __data.js__)
@@ -136,6 +142,8 @@ Response components:
   ]
   ```
 
+Run `npm test test/08-specs.js` to make sure you set this endpoint correctly.
+
 ### Get a specific album's details based on albumId
 
 Request components:
@@ -149,7 +157,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about a specific album and their songs
   (returned from `getAlbumByAlbumId(albumId)` function exported from
   __data.js__)
@@ -175,14 +183,16 @@ Response components:
   }
   ```
 
+Run `npm test test/09-specs.js` to make sure you set this endpoint correctly.
+
 ### Add an album to a specific artist based on artistId
 
 Request components:
 
 - Method: POST
-- URL: /artist/:artistId/albums
+- URL: /artists/:artistId/albums
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about the album to be created
 
   ```json
@@ -195,7 +205,7 @@ Response components:
 
 - Status Code: 201
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about the newly created album
   (returned from `addAlbumByArtistId(artistId, data)` function exported from
   __data.js__)
@@ -208,6 +218,8 @@ Response components:
   }
   ```
 
+Run `npm test test/10-specs.js` to make sure you set this endpoint correctly.
+
 ### Edit a specified album by albumId
 
 Request components:
@@ -215,7 +227,7 @@ Request components:
 - Method: PUT or PATCH
 - URL: /albums/:albumId
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about the album to be edited
 
   ```json
@@ -228,7 +240,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about the edited album
   (returned from `editAlbumByAlbumId(albumId, data)` function exported from
   __data.js__)
@@ -240,6 +252,8 @@ Response components:
     "artistId": 1
   }
   ```
+
+Run `npm test test/11-specs.js` to make sure you set this endpoint correctly.
 
 ### Delete a specified album by albumId
 
@@ -254,7 +268,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: success message
   (action of `deleteAlbumByAlbumId(albumId)` function exported from
   __data.js__ should be executed)
@@ -264,6 +278,8 @@ Response components:
     "message": "Successfully deleted"
   }
   ```
+
+Run `npm test test/12-specs.js` to make sure you set this endpoint correctly.
 
 ### Get all albums with names filtered by first letter
 
@@ -283,7 +299,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about all the albums that have names starting with the
   letter in the query parameter (returned from `getFilteredAlbums(startsWith)`
   function exported from __data.js__)
@@ -298,61 +314,7 @@ Response components:
   ]
   ```
 
-### Get all songs of a specific artist based on artistId
-
-Request components:
-
-- Method: GET
-- URL: /artists/:artistId/songs
-- Headers: none
-- Body: none
-
-Response components:
-
-- Status Code: 200
-- Headers:
-    - Content-Type: application/json
-- Body: information about all the songs of a specific artist
-  (returned from `getSongsByArtistId(artistId)` function exported from
-  __data.js__)
-
-  ```json
-  [
-    {
-      "songs": 1,
-      "name": "Dani California",
-      "albumId": 1
-    }
-  ]
-  ```
-
-### Get all songs of a specific album based on albumId
-
-Request components:
-
-- Method: GET
-- URL: /albums/:albumId/songs
-- Headers: none
-- Body: none
-
-Response components:
-
-- Status Code: 200
-- Headers:
-    - Content-Type: application/json
-- Body: information about all the songs of a specific album
-  (returned from `getSongsByAlbumId(albumId)` function exported from
-  __data.js__)
-
-  ```json
-  [
-    {
-      "songs": 1,
-      "name": "Dani California",
-      "albumId": 1
-    }
-  ]
-  ```
+Run `npm test test/13-specs.js` to make sure you set this endpoint correctly.
 
 ### Get a specific song's details based on songId
 
@@ -367,7 +329,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about a specific song
   (returned from `getSongBySongId(songId)` function exported from
   __data.js__)
@@ -391,6 +353,8 @@ Response components:
   }
   ```
 
+Run `npm test test/14-specs.js` to make sure you set this endpoint correctly.
+
 ### Add a song to a specific album based on albumId
 
 Request components:
@@ -398,7 +362,7 @@ Request components:
 - Method: POST
 - URL: /albums/:albumId/songs
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about the song to be created
 
   ```json
@@ -414,7 +378,7 @@ Response components:
 
 - Status Code: 201
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about the newly created song
   (returned from `addSongByAlbumId(albumId, data)` function exported from
   __data.js__)
@@ -429,6 +393,68 @@ Response components:
   }
   ```
 
+Run `npm test test/15-specs.js` to make sure you set this endpoint correctly.
+
+### Get all songs of a specific artist based on artistId
+
+Request components:
+
+- Method: GET
+- URL: /artists/:artistId/songs
+- Headers: none
+- Body: none
+
+Response components:
+
+- Status Code: 200
+- Headers:
+  - Content-Type: application/json
+- Body: information about all the songs of a specific artist
+  (returned from `getSongsByArtistId(artistId)` function exported from
+  __data.js__)
+
+  ```json
+  [
+    {
+      "songs": 1,
+      "name": "Dani California",
+      "albumId": 1
+    }
+  ]
+  ```
+
+Run `npm test test/16-specs.js` to make sure you set this endpoint correctly.
+
+### Get all songs of a specific album based on albumId
+
+Request components:
+
+- Method: GET
+- URL: /albums/:albumId/songs
+- Headers: none
+- Body: none
+
+Response components:
+
+- Status Code: 200
+- Headers:
+  - Content-Type: application/json
+- Body: information about all the songs of a specific album
+  (returned from `getSongsByAlbumId(albumId)` function exported from
+  __data.js__)
+
+  ```json
+  [
+    {
+      "songs": 1,
+      "name": "Dani California",
+      "albumId": 1
+    }
+  ]
+  ```
+
+Run `npm test test/17-specs.js` to make sure you set this endpoint correctly.
+
 ### Edit a specified song by songId
 
 Request components:
@@ -436,7 +462,7 @@ Request components:
 - Method: PUT or PATCH
 - URL: /songs/:songId
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about the song to be edited
 
   ```json
@@ -451,7 +477,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about the edited song
   (returned from `editSongBySongId(songId, data)` function exported from
   __data.js__)
@@ -466,6 +492,8 @@ Response components:
   }
   ```
 
+Run `npm test test/18-specs.js` to make sure you set this endpoint correctly.
+
 ### Delete a specified song by songId
 
 Request components:
@@ -479,7 +507,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: success message
   (action of `deleteSongBySongId(songId)` function exported from
   __data.js__ should be executed)
@@ -489,3 +517,5 @@ Response components:
     "message": "Successfully deleted"
   }
   ```
+
+Run `npm test test/19-specs.js` to make sure you set this endpoint correctly.

@@ -26,5 +26,10 @@ const app = express();
 
 // Your code here
 
-const port = 5000;
-app.listen(port, () => console.log('Server is listening on port', port));
+// DO NOT MODIFY
+if (require.main === module) {
+  const port = 8000;
+  app.listen(port, () => console.log('Server is listening on port', port));
+} else {
+  module.exports = app;
+}

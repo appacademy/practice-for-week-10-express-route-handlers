@@ -33,7 +33,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about a specific artist and their albums
   (returned from `getLatestArtist()` function exported from
   __data.js__)
@@ -46,6 +46,8 @@ Response components:
     }
   }
   ```
+
+Run `npm test test/03-specs.js` to make sure you set this endpoint correctly.
 
 ### Get all albums of the latest artist
 
@@ -60,7 +62,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about all the albums for the latest artist added
   (returned from `getAlbumsForLatestArtist()` function exported from
   __data.js__)
@@ -78,3 +80,5 @@ Response components:
     }
   }
   ```
+
+Run `npm test test/04-specs.js` to make sure you set this endpoint correctly.

@@ -4,8 +4,8 @@ In this practice, you will create an Express server with basic Express routes.
 
 Follow the steps outlined below to complete both phases:
 
-* Handle JSON In Request (Basic)
-* Create Route Handlers (Basic)
+- Handle JSON In Request (Basic)
+- Create Route Handlers (Basic)
 
 ## Getting started
 
@@ -69,15 +69,15 @@ To test this set up, add these lines of code right after
 
 ```js
 app.use((req, res, next) => {
-  console.log('Body:', req.body);
+  console.log('Request Body:', req.body);
   next();
 });
 ```
 
-Then start the server and use Postman to make a request to `POST /` with any 
-JSON body. You should see the body contents logged to the server console. If you 
-see`Body: undefined`, then you set the boilerplate code incorrectly. Please 
-review the setup.
+Then start the server and use Postman to make a request to `POST /` with any
+JSON body. You should see the body contents logged to the server console. If you
+see `Request Body: undefined`, then you set the boilerplate code incorrectly.
+Please review the setup.
 
 ## Basic Phase 2: Create Route Handlers
 
@@ -106,7 +106,7 @@ Response components:
 
 - Status Code: 200
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about all the artists
   (returned from `getAllArtists()` function exported from __data.js__)
 
@@ -119,13 +119,16 @@ Response components:
   ]
   ```
 
+Run `npm test test/01-specs.js` to make sure you set this endpoint correctly.
+
 ### Add an artist
 
 Request components:
 
 - Method: POST
 - URL: /artists
-    - Content-Type: application/json
+- Headers:
+  - Content-Type: application/json
 - Body: information about the artist to be created
 
   ```json
@@ -141,7 +144,7 @@ For setting the status code to `201` instead of the default `200`, call
 
 - Status Code: 201
 - Headers:
-    - Content-Type: application/json
+  - Content-Type: application/json
 - Body: information about the newly created artist
   (returned from `addArtist(data)` function exported from __data.js__)
 
@@ -151,3 +154,5 @@ For setting the status code to `201` instead of the default `200`, call
     "name": "Led Zeppelin"
   }
   ```
+
+Run `npm test test/02-specs.js` to make sure you set this endpoint correctly.
